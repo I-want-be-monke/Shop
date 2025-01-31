@@ -1,0 +1,74 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Progi\\Saitic\\DildoShop\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{86B6AB3A-F9EA-4E59-9BFD-9520E60579E1}|dildoshop.client\\dildoshop.client.esproj|c:\\progi\\saitic\\dildoshop\\dildoshop.client\\src\\app.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{86B6AB3A-F9EA-4E59-9BFD-9520E60579E1}|dildoshop.client\\dildoshop.client.esproj|solutionrelative:dildoshop.client\\src\\app.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{86B6AB3A-F9EA-4E59-9BFD-9520E60579E1}|dildoshop.client\\dildoshop.client.esproj|c:\\progi\\saitic\\dildoshop\\dildoshop.client\\src\\shopshelf.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{86B6AB3A-F9EA-4E59-9BFD-9520E60579E1}|dildoshop.client\\dildoshop.client.esproj|solutionrelative:dildoshop.client\\src\\shopshelf.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{86B6AB3A-F9EA-4E59-9BFD-9520E60579E1}|dildoshop.client\\dildoshop.client.esproj|c:\\progi\\saitic\\dildoshop\\dildoshop.client\\src\\login.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{86B6AB3A-F9EA-4E59-9BFD-9520E60579E1}|dildoshop.client\\dildoshop.client.esproj|solutionrelative:dildoshop.client\\src\\login.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "App.tsx",
+              "DocumentMoniker": "C:\\Progi\\Saitic\\DildoShop\\dildoshop.client\\src\\App.tsx",
+              "RelativeDocumentMoniker": "dildoshop.client\\src\\App.tsx",
+              "ToolTip": "C:\\Progi\\Saitic\\DildoShop\\dildoshop.client\\src\\App.tsx",
+              "RelativeToolTip": "dildoshop.client\\src\\App.tsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-01-30T15:53:50.949Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ShopShelf.tsx",
+              "DocumentMoniker": "C:\\Progi\\Saitic\\DildoShop\\dildoshop.client\\src\\ShopShelf.tsx",
+              "RelativeDocumentMoniker": "dildoshop.client\\src\\ShopShelf.tsx",
+              "ToolTip": "C:\\Progi\\Saitic\\DildoShop\\dildoshop.client\\src\\ShopShelf.tsx",
+              "RelativeToolTip": "dildoshop.client\\src\\ShopShelf.tsx",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAAAHAAAABQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-01-30T15:27:19.082Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Login.tsx",
+              "DocumentMoniker": "C:\\Progi\\Saitic\\DildoShop\\dildoshop.client\\src\\Login.tsx",
+              "RelativeDocumentMoniker": "dildoshop.client\\src\\Login.tsx",
+              "ToolTip": "C:\\Progi\\Saitic\\DildoShop\\dildoshop.client\\src\\Login.tsx",
+              "RelativeToolTip": "dildoshop.client\\src\\Login.tsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-01-30T15:25:55.122Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+﻿.container {
+    padding: 20px;
+}
+
+.black-theme {
+    background-color: black;
+    color: white;
+}
+
+.white-theme {
+    background-color: white;
+    color: black;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-field-Login,
+.input-field-LoginPassword {
+    margin: 10px 0;
+    padding: 10px;
+}
+
+.submit-button {
+    margin: 5px 0;
+    padding: 10px;
+}
+
+.message {
+    margin-top: 10px;
+    color: red; 
+}
