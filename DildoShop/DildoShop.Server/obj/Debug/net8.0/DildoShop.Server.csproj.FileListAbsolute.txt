@@ -6,7 +6,6 @@ C:\Progi\Saitic\DildoShop\DildoShop.Server\bin\Debug\net8.0\DildoShop.Server.dep
 C:\Progi\Saitic\DildoShop\DildoShop.Server\bin\Debug\net8.0\DildoShop.Server.runtimeconfig.json
 C:\Progi\Saitic\DildoShop\DildoShop.Server\bin\Debug\net8.0\DildoShop.Server.dll
 C:\Progi\Saitic\DildoShop\DildoShop.Server\bin\Debug\net8.0\DildoShop.Server.pdb
-C:\Progi\Saitic\DildoShop\DildoShop.Server\bin\Debug\net8.0\Microsoft.AspNetCore.SpaProxy.dll
 C:\Progi\Saitic\DildoShop\DildoShop.Server\bin\Debug\net8.0\Microsoft.OpenApi.dll
 C:\Progi\Saitic\DildoShop\DildoShop.Server\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Progi\Saitic\DildoShop\DildoShop.Server\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
@@ -34,3 +33,19 @@ C:\Progi\Saitic\DildoShop\DildoShop.Server\obj\Debug\net8.0\refint\DildoShop.Ser
 C:\Progi\Saitic\DildoShop\DildoShop.Server\obj\Debug\net8.0\DildoShop.Server.pdb
 C:\Progi\Saitic\DildoShop\DildoShop.Server\obj\Debug\net8.0\DildoShop.Server.genruntimeconfig.cache
 C:\Progi\Saitic\DildoShop\DildoShop.Server\obj\Debug\net8.0\ref\DildoShop.Server.dll
+C:\Progi\Saitic\DildoShop\DildoShop.Server\bin\Debug\net8.0\BCrypt.Net-Next.dll
+C:\Progi\Saitic\DildoShop\DildoShop.Server\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+C:\Progi\Saitic\DildoShop\DildoShop.Server\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Progi\Saitic\DildoShop\DildoShop.Server\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Progi\Saitic\DildoShop\DildoShop.Server\bin\Debug\net8.0\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Progi\Saitic\DildoShop\DildoShop.Server\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Progi\Saitic\DildoShop\DildoShop.Server\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Progi\Saitic\DildoShop\DildoShop.Server\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Progi\Saitic\DildoShop\DildoShop.Server\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Progi\Saitic\DildoShop\DildoShop.Server\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
+C:\Progi\Saitic\DildoShop\DildoShop.Server\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Progi\Saitic\DildoShop\DildoShop.Server\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\Progi\Saitic\DildoShop\DildoShop.Server\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
+C:\Progi\Saitic\DildoShop\DildoShop.Server\bin\Debug\net8.0\Npgsql.dll
+C:\Progi\Saitic\DildoShop\DildoShop.Server\bin\Debug\net8.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\Progi\Saitic\DildoShop\DildoShop.Server\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll

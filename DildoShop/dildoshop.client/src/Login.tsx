@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios, { AxiosError } from 'axios';
 import './Login.css';
 
 const Login: React.FC = () => {
@@ -8,18 +9,24 @@ const Login: React.FC = () => {
     const [message, setMessage] = useState<string>('');
     const [isSubmitting, setIsSubmitting] = useState(false);
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
+        setMessage('');
 
-        setTimeout(() => {
-            if (inputValue && inputPassword) {
-                setMessage(`Welcome back, ${inputValue}!`);
-            } else {
-                setMessage('Please fill in all fields');
-            }
+        try {
+            const response = await axios.post('http://localhost:5000/api/auth/login', {
+                username: inputValue,
+                password: inputPassword
+            });
+            setMessage(`Welcome back, ${response.data.username}!`);
+        } catch (error) {
+            const axiosError = error as AxiosError; // Приведение типа
+            const errorMessage = axiosError.response?.data as string || 'Ошибка входа'; // Приведение к строке
+            setMessage(errorMessage);
+        } finally {
             setIsSubmitting(false);
-        }, 1500);
+        }
     };
 
     return (
@@ -38,6 +45,7 @@ const Login: React.FC = () => {
                             placeholder="Email or Username"
                             className="styled-input"
                             disabled={isSubmitting}
+                            required
                         />
                         <div className="input-icon">
                             <svg className="icon" viewBox="0 0 24 24">
@@ -54,6 +62,7 @@ const Login: React.FC = () => {
                             placeholder="Password"
                             className="styled-input"
                             disabled={isSubmitting}
+                            required
                         />
                         <div className="input-icon">
                             <svg className="icon" viewBox="0 0 24 24">
@@ -69,7 +78,6 @@ const Login: React.FC = () => {
                     >
                         {isSubmitting ? 'Authenticating...' : 'Continue'}
                     </button>
-
                     <div className="alternate-action">
                         <span>New here? </span>
                         <Link to="/registration" className="link">
@@ -96,3 +104,5 @@ const Login: React.FC = () => {
 };
 
 export default Login;
+
+
