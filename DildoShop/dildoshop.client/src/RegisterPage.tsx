@@ -3,12 +3,20 @@ import { Link } from 'react-router-dom';
 import axios, { AxiosError } from 'axios';
 import './RegisterPage.css';
 
+interface RegisterResponse {
+    message: string;
+}
+
+interface ErrorResponse {
+    message: string;
+}
+
 const Registration: React.FC = () => {
     const [username, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [gender, setGender] = useState<string>('male');
-    const [preferredSize, setPreferredSize] = useState<string>('');
-    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [preferredSize, setPreferredSize] = useState<number | ''>('');
+    const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
     const [message, setMessage] = useState<string>('');
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -17,19 +25,17 @@ const Registration: React.FC = () => {
         setMessage('');
 
         try {
-            const response = await axios.post('http://localhost:5000/api/auth/register', {
-                username,
-                password,
-                gender,
-                preferredSize
+            await axios.post<RegisterResponse>('https://localhost:7295/register', {
+                Login: username,
+                Password: password,
+                Gender: gender,
+                PreferredDildoSize: preferredSize
             });
-            setMessage(`Welcome ${response.data.username}! Your profile created successfully`);
+            setMessage(`Welcome ${username}! Your profile has been created successfully.`);
         } catch (error) {
-            const axiosError = error as AxiosError;
-            const errorMessage = axiosError.response?.data;
-
-            // Ensure the message is a string
-            setMessage(typeof errorMessage === 'string' ? errorMessage : 'Ошибка регистрации');
+            const axiosError = error as AxiosError<ErrorResponse>;
+            const errorMessage = axiosError.response?.data?.message || 'Registration error';
+            setMessage(errorMessage);
         } finally {
             setIsSubmitting(false);
         }
@@ -84,9 +90,13 @@ const Registration: React.FC = () => {
 
                     <div className="input-group">
                         <input
-                            type="text"
-                            value={preferredSize}
-                            onChange={(e) => setPreferredSize(e.target.value)}
+                            type="number"
+                            value={preferredSize === '' ? '' : preferredSize}
+                            onChange={(e) => {
+                                const value = e.target.value;
+                                const numberValue = value ? parseInt(value) : '';
+                                setPreferredSize(numberValue);
+                            }}
                             placeholder="Preferred Size"
                             className="styled-input"
                             disabled={isSubmitting}

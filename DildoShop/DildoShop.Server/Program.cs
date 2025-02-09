@@ -1,4 +1,5 @@
 using DildoShop.Server.DataBase;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
@@ -52,7 +53,16 @@ app.UseSwagger();
 app.UseSwaggerUI(c =>
 {
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
-    c.RoutePrefix = string.Empty; 
+    c.RoutePrefix = string.Empty;
+});
+
+// Обработка ошибок
+app.UseExceptionHandler("/error");
+
+app.MapGet("/error", (HttpContext httpContext) =>
+{
+    var exception = httpContext.Features.Get<IExceptionHandlerFeature>()?.Error;
+    return Results.Problem(detail: exception?.Message);
 });
 
 app.MapControllers();

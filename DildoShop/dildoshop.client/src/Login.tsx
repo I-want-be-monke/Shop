@@ -15,14 +15,14 @@ const Login: React.FC = () => {
         setMessage('');
 
         try {
-            const response = await axios.post('http://localhost:5000/api/auth/login', {
+            const response = await axios.post('https://localhost:7295/login', {
                 username: inputValue,
                 password: inputPassword
             });
             setMessage(`Welcome back, ${response.data.username}!`);
         } catch (error) {
             const axiosError = error as AxiosError; // Приведение типа
-            const errorMessage = axiosError.response?.data as string || 'Ошибка входа'; // Приведение к строке
+            const errorMessage = axiosError.response?.data as string || 'Login error'; // Приведение к строке
             setMessage(errorMessage);
         } finally {
             setIsSubmitting(false);
