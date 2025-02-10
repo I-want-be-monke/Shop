@@ -48,10 +48,10 @@ public class AuthController : ControllerBase
     [HttpPost("login")]
     public async Task<IActionResult> Login([FromBody] UserLoginDto request)
     {
-        var user = await _context.Users.SingleOrDefaultAsync(u => u.Login == request.Username);
+        var user = await _context.Users.SingleOrDefaultAsync(u => u.Login == request.Login);
         if (user == null)
         {
-            return BadRequest(new { message = "Invalid username or password" });
+            return BadRequest(new { message = "Invalid Email or password" });
         }
 
 

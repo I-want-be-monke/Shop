@@ -3,6 +3,11 @@ import { Link } from 'react-router-dom';
 import axios, { AxiosError } from 'axios';
 import './Login.css';
 
+// Интерфейс для структуры ответа об ошибке
+interface ErrorResponse {
+    message: string;
+}
+
 const Login: React.FC = () => {
     const [inputValue, setInputValue] = useState<string>('');
     const [inputPassword, setInputPassword] = useState<string>('');
@@ -15,14 +20,14 @@ const Login: React.FC = () => {
         setMessage('');
 
         try {
-            const response = await axios.post('https://localhost:7295/api/Auth/login', {
-                username: inputValue,
+            const response = await axios.post('https://localhost:7295/api/auth/login', {
+                login: inputValue,
                 password: inputPassword
             });
-            setMessage(`Welcome back, ${response.data.username}!`);
+            setMessage(response.data.message);
         } catch (error) {
-            const axiosError = error as AxiosError; // Приведение типа
-            const errorMessage = axiosError.response?.data as string || 'Login error'; // Приведение к строке
+            const axiosError = error as AxiosError<ErrorResponse>; // Приведение типа
+            const errorMessage = axiosError.response?.data.message || 'Login error';
             setMessage(errorMessage);
         } finally {
             setIsSubmitting(false);
@@ -104,5 +109,4 @@ const Login: React.FC = () => {
 };
 
 export default Login;
-
 
