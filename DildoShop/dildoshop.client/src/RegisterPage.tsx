@@ -14,6 +14,7 @@ interface ErrorResponse {
 const Registration: React.FC = () => {
     const [username, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
+    const [email, setEmail] = useState<string>(''); 
     const [gender, setGender] = useState<string>('male');
     const [preferredSize, setPreferredSize] = useState<number | ''>('');
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
@@ -25,9 +26,10 @@ const Registration: React.FC = () => {
         setMessage('');
 
         try {
-            await axios.post<RegisterResponse>('https://localhost:7295/register', {
+            await axios.post<RegisterResponse>('https://localhost:7295/api/Auth/register', {
                 Login: username,
                 Password: password,
+                Mail: email, 
                 Gender: gender,
                 PreferredDildoSize: preferredSize
             });
@@ -67,6 +69,18 @@ const Registration: React.FC = () => {
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             placeholder="Password"
+                            className="styled-input"
+                            disabled={isSubmitting}
+                            required
+                        />
+                    </div>
+
+                    <div className="input-group">
+                        <input
+                            type="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            placeholder="Email"
                             className="styled-input"
                             disabled={isSubmitting}
                             required

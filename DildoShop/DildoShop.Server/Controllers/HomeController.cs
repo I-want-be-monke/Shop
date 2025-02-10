@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 
+[Route("api/[controller]")]
+[ApiController]
 public class AuthController : ControllerBase
 {
     private readonly AppDbContext _context;
@@ -23,13 +25,18 @@ public class AuthController : ControllerBase
         {
             return BadRequest(new { message = "The username is already occupied" });
         }
+        if (await _context.Users.AnyAsync(u => u.Mail == request.Mail))
+        {
+            return BadRequest(new { message = "The email is already occupied" });
+        }
 
         var user = new User
         {
+            Mail = request.Mail,
             Login = request.Login,
             PasswordHash = _passwordHasher.HashPassword(null, request.Password),
             Gender = request.Gender,
-            PreferredDildoSize = request.PreferredDildoSize // Убедитесь, что это поле правильно передается
+            PreferredDildoSize = request.PreferredDildoSize 
         };
 
         _context.Users.Add(user);
@@ -47,6 +54,7 @@ public class AuthController : ControllerBase
             return BadRequest(new { message = "Invalid username or password" });
         }
 
+
         var result = _passwordHasher.VerifyHashedPassword(user, user.PasswordHash, request.Password);
         if (result == PasswordVerificationResult.Failed)
         {
@@ -55,4 +63,11 @@ public class AuthController : ControllerBase
 
         return Ok(new { message = $"Welcome back, {user.Login}!" });
     }
+
+    [HttpGet("test")]
+    public IActionResult Test()
+    {
+        return Ok("Test successful");
+    }
+
 }

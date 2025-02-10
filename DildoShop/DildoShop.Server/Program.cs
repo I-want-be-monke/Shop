@@ -59,11 +59,12 @@ app.UseSwaggerUI(c =>
 // Обработка ошибок
 app.UseExceptionHandler("/error");
 
-app.MapGet("/error", (HttpContext httpContext) =>
+app.MapPost("/error", (HttpContext httpContext) =>
 {
     var exception = httpContext.Features.Get<IExceptionHandlerFeature>()?.Error;
     return Results.Problem(detail: exception?.Message);
 });
+
 
 app.MapControllers();
 app.Run();

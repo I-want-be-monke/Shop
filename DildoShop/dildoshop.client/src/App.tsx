@@ -4,6 +4,7 @@ import Login from './Login';
 import Registration from './RegisterPage';
 import ShopShelf from './ShopShelf';
 import CartPage from './CartPage.tsx';
+import SettingsPage from './SettingsPage';
 import './App.css';
 
 const App: React.FC = () => {
@@ -13,11 +14,11 @@ const App: React.FC = () => {
                 <Route path="/" element={<ShopShelf />} />
                 <Route path="/registration" element={<Registration />} />
                 <Route path="/Login" element={<Login />} />
-                <Route  path="/cart" element={<CartPage />} />
+                <Route path="/cart" element={<CartPage />} />
+                <Route path="/settings" element={<SettingsPage />} />
             </Routes>
         </Router>
     );
 };
 
 export default App;
-// xeq

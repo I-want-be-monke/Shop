@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DildoShop.Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d8473994ab8ca3cbed7a7705e95c5f57380935a7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a977256f91db02676f0c8335808905ef99da99a4")]
 [assembly: System.Reflection.AssemblyProductAttribute("DildoShop.Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DildoShop.Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -202,3 +202,114 @@
         height: 24px;
         fill: currentColor;
     }
+/* Добавить в конец файла */
+.header-controls {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.settings-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #2d3436;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+    .settings-link:hover {
+        color: #ff6b6b;
+    }
+
+.gear-icon {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
+
+.settings-content {
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.security-card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.toggle-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.toggle-btn {
+    width: 50px;
+    height: 26px;
+    border-radius: 13px;
+    background: #ddd;
+    position: relative;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+    .toggle-btn.enabled {
+        background: #ff7675;
+    }
+
+.toggle-knob {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background: white;
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.3s ease;
+}
+
+.toggle-btn.enabled .toggle-knob {
+    transform: translateX(24px);
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+    .auth-form input {
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 16px;
+    }
+
+.auth-button {
+    background: linear-gradient(135deg, #ff7675, #ff6b6b);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+    .auth-button:hover {
+        opacity: 0.9;
+    }
+
+.error-message {
+    color: #ff6b6b;
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
