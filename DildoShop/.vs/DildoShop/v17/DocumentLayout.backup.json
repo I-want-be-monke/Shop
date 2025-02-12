@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Progi\\Saitic\\DildoShop\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{86B6AB3A-F9EA-4E59-9BFD-9520E60579E1}|dildoshop.client\\dildoshop.client.esproj|c:\\progi\\saitic\\dildoshop\\dildoshop.client\\src\\twofactorauthpage.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{86B6AB3A-F9EA-4E59-9BFD-9520E60579E1}|dildoshop.client\\dildoshop.client.esproj|solutionrelative:dildoshop.client\\src\\twofactorauthpage.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{2A39785E-FB31-4FF1-9DF1-E3DA79110D13}|DildoShop.Server\\DildoShop.Server.csproj|c:\\progi\\saitic\\dildoshop\\dildoshop.server\\controllers\\twofactorauthcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2A39785E-FB31-4FF1-9DF1-E3DA79110D13}|DildoShop.Server\\DildoShop.Server.csproj|solutionrelative:dildoshop.server\\controllers\\twofactorauthcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -11,16 +15,28 @@
       "RelativeMoniker": "D:0:0:{86B6AB3A-F9EA-4E59-9BFD-9520E60579E1}|dildoshop.client\\dildoshop.client.esproj|solutionrelative:dildoshop.client\\src\\app.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{86B6AB3A-F9EA-4E59-9BFD-9520E60579E1}|dildoshop.client\\dildoshop.client.esproj|c:\\progi\\saitic\\dildoshop\\dildoshop.client\\src\\login.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{86B6AB3A-F9EA-4E59-9BFD-9520E60579E1}|dildoshop.client\\dildoshop.client.esproj|solutionrelative:dildoshop.client\\src\\login.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+      "AbsoluteMoniker": "D:0:0:{86B6AB3A-F9EA-4E59-9BFD-9520E60579E1}|dildoshop.client\\dildoshop.client.esproj|c:\\progi\\saitic\\dildoshop\\dildoshop.client\\src\\registerpage.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{86B6AB3A-F9EA-4E59-9BFD-9520E60579E1}|dildoshop.client\\dildoshop.client.esproj|solutionrelative:dildoshop.client\\src\\registerpage.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2A39785E-FB31-4FF1-9DF1-E3DA79110D13}|DildoShop.Server\\DildoShop.Server.csproj|c:\\progi\\saitic\\dildoshop\\dildoshop.server\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2A39785E-FB31-4FF1-9DF1-E3DA79110D13}|DildoShop.Server\\DildoShop.Server.csproj|solutionrelative:dildoshop.server\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{2A39785E-FB31-4FF1-9DF1-E3DA79110D13}|DildoShop.Server\\DildoShop.Server.csproj|c:\\progi\\saitic\\dildoshop\\dildoshop.server\\models\\userregistrationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2A39785E-FB31-4FF1-9DF1-E3DA79110D13}|DildoShop.Server\\DildoShop.Server.csproj|solutionrelative:dildoshop.server\\models\\userregistrationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{86B6AB3A-F9EA-4E59-9BFD-9520E60579E1}|dildoshop.client\\dildoshop.client.esproj|c:\\progi\\saitic\\dildoshop\\dildoshop.client\\src\\login.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{86B6AB3A-F9EA-4E59-9BFD-9520E60579E1}|dildoshop.client\\dildoshop.client.esproj|solutionrelative:dildoshop.client\\src\\login.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|c:\\Progi\\Saitic\\DildoShop\\dildoshop.client\\node_modules\\react-dom\\cjs\\react-dom.development.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}|",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:dildoshop.client\\node_modules\\react-dom\\cjs\\react-dom.development.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2A39785E-FB31-4FF1-9DF1-E3DA79110D13}|DildoShop.Server\\DildoShop.Server.csproj|c:\\progi\\saitic\\dildoshop\\dildoshop.server\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2A39785E-FB31-4FF1-9DF1-E3DA79110D13}|DildoShop.Server\\DildoShop.Server.csproj|solutionrelative:dildoshop.server\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2A39785E-FB31-4FF1-9DF1-E3DA79110D13}|DildoShop.Server\\DildoShop.Server.csproj|c:\\progi\\saitic\\dildoshop\\dildoshop.server\\models\\userlogindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -43,36 +59,88 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "TwoFactorAuthPage.tsx",
+              "DocumentMoniker": "C:\\Progi\\Saitic\\DildoShop\\dildoshop.client\\src\\TwoFactorAuthPage.tsx",
+              "RelativeDocumentMoniker": "dildoshop.client\\src\\TwoFactorAuthPage.tsx",
+              "ToolTip": "C:\\Progi\\Saitic\\DildoShop\\dildoshop.client\\src\\TwoFactorAuthPage.tsx",
+              "RelativeToolTip": "dildoshop.client\\src\\TwoFactorAuthPage.tsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHoAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-02-12T10:57:00.777Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RegisterPage.css",
+              "DocumentMoniker": "C:\\Progi\\Saitic\\DildoShop\\dildoshop.client\\src\\RegisterPage.css",
+              "RelativeDocumentMoniker": "dildoshop.client\\src\\RegisterPage.css",
+              "ToolTip": "C:\\Progi\\Saitic\\DildoShop\\dildoshop.client\\src\\RegisterPage.css",
+              "RelativeToolTip": "dildoshop.client\\src\\RegisterPage.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-02-12T10:56:57.615Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Progi\\Saitic\\DildoShop\\DildoShop.Server\\Models\\User.cs",
+              "RelativeDocumentMoniker": "DildoShop.Server\\Models\\User.cs",
+              "ToolTip": "C:\\Progi\\Saitic\\DildoShop\\DildoShop.Server\\Models\\User.cs",
+              "RelativeToolTip": "DildoShop.Server\\Models\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-12T07:37:47.556Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "TwoFactorAuthController.cs",
               "DocumentMoniker": "C:\\Progi\\Saitic\\DildoShop\\DildoShop.Server\\Controllers\\TwoFactorAuthController.cs",
               "RelativeDocumentMoniker": "DildoShop.Server\\Controllers\\TwoFactorAuthController.cs",
               "ToolTip": "C:\\Progi\\Saitic\\DildoShop\\DildoShop.Server\\Controllers\\TwoFactorAuthController.cs",
               "RelativeToolTip": "DildoShop.Server\\Controllers\\TwoFactorAuthController.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAQwCwAAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAADQAAAAAAAAAAAAIwEQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-10T17:07:13.421Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "App.tsx",
               "DocumentMoniker": "C:\\Progi\\Saitic\\DildoShop\\dildoshop.client\\src\\App.tsx",
               "RelativeDocumentMoniker": "dildoshop.client\\src\\App.tsx",
               "ToolTip": "C:\\Progi\\Saitic\\DildoShop\\dildoshop.client\\src\\App.tsx",
               "RelativeToolTip": "dildoshop.client\\src\\App.tsx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAHAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
               "WhenOpened": "2025-02-10T17:04:12.341Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
+              "Title": "UserRegistrationDto.cs",
+              "DocumentMoniker": "C:\\Progi\\Saitic\\DildoShop\\DildoShop.Server\\Models\\UserRegistrationDto.cs",
+              "RelativeDocumentMoniker": "DildoShop.Server\\Models\\UserRegistrationDto.cs",
+              "ToolTip": "C:\\Progi\\Saitic\\DildoShop\\DildoShop.Server\\Models\\UserRegistrationDto.cs",
+              "RelativeToolTip": "DildoShop.Server\\Models\\UserRegistrationDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-12T07:58:59.57Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "react-dom.development.js",
-              "DocumentMoniker": "c:\\Progi\\Saitic\\DildoShop\\dildoshop.client\\node_modules\\react-dom\\cjs\\react-dom.development.js",
+              "DocumentMoniker": "C:\\Progi\\Saitic\\DildoShop\\dildoshop.client\\node_modules\\react-dom\\cjs\\react-dom.development.js",
               "RelativeDocumentMoniker": "dildoshop.client\\node_modules\\react-dom\\cjs\\react-dom.development.js",
-              "ToolTip": "c:\\Progi\\Saitic\\DildoShop\\dildoshop.client\\node_modules\\react-dom\\cjs\\react-dom.development.js",
+              "ToolTip": "C:\\Progi\\Saitic\\DildoShop\\dildoshop.client\\node_modules\\react-dom\\cjs\\react-dom.development.js",
               "RelativeToolTip": "dildoshop.client\\node_modules\\react-dom\\cjs\\react-dom.development.js",
               "ViewState": "AgIAAEJpAAAAAAAAAIAwwFFpAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
@@ -81,20 +149,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\Progi\\Saitic\\DildoShop\\DildoShop.Server\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "DildoShop.Server\\Controllers\\HomeController.cs",
               "ToolTip": "C:\\Progi\\Saitic\\DildoShop\\DildoShop.Server\\Controllers\\HomeController.cs",
               "RelativeToolTip": "DildoShop.Server\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAACsAAAAAAAAAAAAkwEkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAcwEIAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-10T16:43:59.865Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "UserLoginDto.cs",
               "DocumentMoniker": "C:\\Progi\\Saitic\\DildoShop\\DildoShop.Server\\Models\\UserLoginDto.cs",
               "RelativeDocumentMoniker": "DildoShop.Server\\Models\\UserLoginDto.cs",
@@ -102,18 +170,17 @@
               "RelativeToolTip": "DildoShop.Server\\Models\\UserLoginDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-10T16:43:03.062Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-10T16:43:03.062Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "Login.tsx",
               "DocumentMoniker": "C:\\Progi\\Saitic\\DildoShop\\dildoshop.client\\src\\Login.tsx",
               "RelativeDocumentMoniker": "dildoshop.client\\src\\Login.tsx",
               "ToolTip": "C:\\Progi\\Saitic\\DildoShop\\dildoshop.client\\src\\Login.tsx",
               "RelativeToolTip": "dildoshop.client\\src\\Login.tsx",
-              "ViewState": "AgIAAE8AAAAAAAAAAAAswG8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAswCQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
               "WhenOpened": "2025-02-10T16:41:20.121Z",
               "EditorCaption": ""

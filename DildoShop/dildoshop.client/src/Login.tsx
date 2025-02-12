@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios, { AxiosError } from 'axios';
 import './Login.css';
 
@@ -8,11 +8,19 @@ interface ErrorResponse {
     message: string;
 }
 
+// Интерфейс для структуры ответа о пользователе
+interface UserResponse {
+    message: string;
+    is2FAEnabled: boolean;
+    email: string;
+}
+
 const Login: React.FC = () => {
     const [inputValue, setInputValue] = useState<string>('');
     const [inputPassword, setInputPassword] = useState<string>('');
     const [message, setMessage] = useState<string>('');
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const navigate = useNavigate();
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -20,11 +28,18 @@ const Login: React.FC = () => {
         setMessage('');
 
         try {
-            const response = await axios.post('https://localhost:7295/api/auth/login', {
+            const response = await axios.post<UserResponse>('https://localhost:7295/api/auth/login', {
                 login: inputValue,
                 password: inputPassword
             });
             setMessage(response.data.message);
+
+
+            if (response.data.is2FAEnabled) {
+                navigate('/TwoFactorAuth', { state: { email: response.data.email } });
+            } else {
+               navigate('/')
+            }
         } catch (error) {
             const axiosError = error as AxiosError<ErrorResponse>; // Приведение типа
             const errorMessage = axiosError.response?.data.message || 'Login error';
@@ -109,4 +124,3 @@ const Login: React.FC = () => {
 };
 
 export default Login;
-

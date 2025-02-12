@@ -1,24 +1,46 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import axios from 'axios'; 
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import axios, { AxiosError } from 'axios';
 import './ShopShelf.css';
 
 const SettingsPage: React.FC = () => {
+    const location = useLocation();
+    const email = location.state?.email; // Получаем почту из состояния
     const [is2FAEnabled, setIs2FAEnabled] = useState(false);
-    const [email, setEmail] = useState('');
     const [code, setCode] = useState('');
     const [codeSent, setCodeSent] = useState(false);
     const [error, setError] = useState('');
 
+    useEffect(() => {
+        // Проверка статуса 2FA для данного пользователя
+        const check2FAStatus = async () => {
+            try {
+                const response = await axios.get(`https://localhost:7295/api/TwoFactorAuth/status?email=${email}`);
+                setIs2FAEnabled(response.data.is2FAEnabled);
+            } catch (err: unknown) {
+                if (axios.isAxiosError(err)) {
+                    console.error('Error fetching 2FA status:', err.message);
+                } else {
+                    console.error('Unexpected error:', err);
+                }
+            }
+        };
+
+        if (email) {
+            check2FAStatus();
+        }
+    }, [email]);
+
     const handleEnable2FA = async (e: React.FormEvent) => {
         e.preventDefault();
+
         if (!email.match(/^\S+@\S+\.\S+$/)) {
             setError('Please enter a valid email address');
             return;
         }
 
         try {
-            const response = await axios.post('https://localhost:7295/api/TwoFactorAuth/send-code', email, {
+            const response = await axios.post('https://localhost:7295/api/TwoFactorAuth/send-code', { email }, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -28,8 +50,13 @@ const SettingsPage: React.FC = () => {
                 setCodeSent(true);
                 setError('');
             }
-        } catch (err) {
-            setError('Failed to send verification code');
+        } catch (err: unknown) {
+            if (axios.isAxiosError(err)) {
+                const axiosError = err as AxiosError;
+                setError('Failed to send verification code: ' + (axiosError.response?.data || axiosError.message));
+            } else {
+                setError('An unexpected error occurred: ' + err);
+            }
             console.error(err);
         }
     };
@@ -51,8 +78,13 @@ const SettingsPage: React.FC = () => {
                 setIs2FAEnabled(true);
                 setError('');
             }
-        } catch (err) {
-            setError('Invalid verification code');
+        } catch (err: unknown) {
+            if (axios.isAxiosError(err)) {
+                const axiosError = err as AxiosError;
+                setError('Invalid verification code: ' + (axiosError.response?.data || axiosError.message));
+            } else {
+                setError('An unexpected error occurred: ' + err);
+            }
             console.error(err);
         }
     };
@@ -87,8 +119,8 @@ const SettingsPage: React.FC = () => {
                                 <input
                                     type="email"
                                     placeholder="Enter your email"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
+                                    value={email} 
+                                    readOnly 
                                     required
                                 />
                                 <button type="submit" className="auth-button">
@@ -121,3 +153,4 @@ const SettingsPage: React.FC = () => {
 };
 
 export default SettingsPage;
+

@@ -8,6 +8,6 @@
         public string Mail { get; set; } 
         public int PreferredDildoSize { get; set; }
 
-        public bool Is2FAEnabled;
+        public bool Is2FAEnabled { get; set; }
     }
 }

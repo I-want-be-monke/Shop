@@ -60,8 +60,15 @@ public class AuthController : ControllerBase
         {
             return BadRequest(new { message = "Invalid username or password" });
         }
+        Console.WriteLine(user.Is2FAEnabled);
+        return Ok(new
+        {
+            message = $"Welcome back, {user.Login}!",
+            is2FAEnabled = user.Is2FAEnabled,
+            email = user.Mail
+        });
 
-        return Ok(new { message = $"Welcome back, {user.Login}!" });
+
     }
 
     [HttpGet("test")]
