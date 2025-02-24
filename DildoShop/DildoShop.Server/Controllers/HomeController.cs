@@ -1,74 +1,45 @@
-﻿using DildoShop.Server.DataBase;
-using DildoShop.Server.Models;
-using Microsoft.AspNetCore.Identity;
+﻿using DildoShop.Server.Models;
+using DildoShop.Server.Service;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System.Threading.Tasks;
 
 [Route("api/[controller]")]
 [ApiController]
 public class AuthController : ControllerBase
 {
-    private readonly AppDbContext _context;
-    private readonly PasswordHasher<User> _passwordHasher;
+    private readonly IAuthService _authService;
 
-    public AuthController(AppDbContext context)
+    public AuthController(IAuthService authService)
     {
-        _context = context;
-        _passwordHasher = new PasswordHasher<User>();
+        _authService = authService;
     }
 
     [HttpPost("register")]
     public async Task<IActionResult> Register([FromBody] UserRegistrationDto request)
     {
-        if (await _context.Users.AnyAsync(u => u.Login == request.Login))
+        var message = await _authService.Register(request);
+        if (message.Contains("already occupied"))
         {
-            return BadRequest(new { message = "The username is already occupied" });
-        }
-        if (await _context.Users.AnyAsync(u => u.Mail == request.Mail))
-        {
-            return BadRequest(new { message = "The email is already occupied" });
+            return BadRequest(new { message });
         }
 
-        var user = new User
-        {
-            Mail = request.Mail,
-            Login = request.Login,
-            PasswordHash = _passwordHasher.HashPassword(null, request.Password),
-            Gender = request.Gender,
-            PreferredDildoSize = request.PreferredDildoSize 
-        };
-
-        _context.Users.Add(user);
-        await _context.SaveChangesAsync();
-
-        return Ok(new { message = "The user has been successfully registered" });
+        return Ok(new { message });
     }
 
     [HttpPost("login")]
     public async Task<IActionResult> Login([FromBody] UserLoginDto request)
     {
-        var user = await _context.Users.SingleOrDefaultAsync(u => u.Login == request.Login);
-        if (user == null)
+        var (message, is2FAEnabled, email) = await _authService.Login(request);
+        if (message.Contains("Invalid"))
         {
-            return BadRequest(new { message = "Invalid Email or password" });
+            return BadRequest(new { message });
         }
 
-
-        var result = _passwordHasher.VerifyHashedPassword(user, user.PasswordHash, request.Password);
-        if (result == PasswordVerificationResult.Failed)
-        {
-            return BadRequest(new { message = "Invalid username or password" });
-        }
-        Console.WriteLine(user.Is2FAEnabled);
         return Ok(new
         {
-            message = $"Welcome back, {user.Login}!",
-            is2FAEnabled = user.Is2FAEnabled,
-            email = user.Mail
+            message,
+            is2FAEnabled,
+            email
         });
-
-
     }
 
     [HttpGet("test")]
@@ -76,5 +47,4 @@ public class AuthController : ControllerBase
     {
         return Ok("Test successful");
     }
-
 }

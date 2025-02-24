@@ -56,7 +56,7 @@
             },
             "Microsoft.AspNetCore.SpaProxy": {
               "target": "Package",
-              "version": "[9.0.1, )"
+              "version": "[9.0.2, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",

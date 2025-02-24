@@ -1,0 +1,24 @@
+{
+  "Version": 1,
+  "Hash": "HYiVYuiRO1hkbilwp8pRbs+ypWqz39ptAdG2zalvxis=",
+  "Source": "DildoShop.Server",
+  "BasePath": "_content/DildoShop.Server",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Progi\\Saitic\\DildoShop\\dildoshop.client\\dildoshop.client.esproj",
+      "Version": 2,
+      "Source": "dildoshop.client",
+      "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Release;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Release;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

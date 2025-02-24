@@ -1,4 +1,5 @@
 using DildoShop.Server.DataBase;
+using DildoShop.Server.Service; // Убедитесь, что вы добавили это пространство имен
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
@@ -43,6 +44,11 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
+
+builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<ITwoFactorAuthService, TwoFactorAuthService>();
+
+
 builder.Services.AddControllers();
 var app = builder.Build();
 
@@ -53,7 +59,7 @@ app.UseSwagger();
 app.UseSwaggerUI(c =>
 {
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
-    c.RoutePrefix = string.Empty;
+    c.RoutePrefix = "swagger";
 });
 
 // Обработка ошибок
@@ -65,6 +71,7 @@ app.MapPost("/error", (HttpContext httpContext) =>
     return Results.Problem(detail: exception?.Message);
 });
 
+app.MapFallbackToFile("index.html");
 
 app.MapControllers();
 app.Run();

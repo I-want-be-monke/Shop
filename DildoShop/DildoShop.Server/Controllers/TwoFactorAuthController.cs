@@ -1,10 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Concurrent;
-using System.Security.Cryptography;
-using System.Text;
 using System.Threading.Tasks;
 using DildoShop.Server.Models;
+using DildoShop.Server.Service;
 
 namespace DildoShop.Server.Controllers
 {
@@ -12,61 +9,41 @@ namespace DildoShop.Server.Controllers
     [ApiController]
     public class TwoFactorAuthController : ControllerBase
     {
-        private static readonly ConcurrentDictionary<string, TwoFactorAuth> Users = new ConcurrentDictionary<string, TwoFactorAuth>();
+        private readonly ITwoFactorAuthService _twoFactorAuthService;
+
+        public TwoFactorAuthController(ITwoFactorAuthService twoFactorAuthService)
+        {
+            _twoFactorAuthService = twoFactorAuthService;
+        }
 
         [HttpPost("send-code")]
-        public IActionResult SendCode([FromBody] EmailRequest request)
+        public async Task<IActionResult> SendCode([FromBody] EmailRequest request)
         {
-            if (string.IsNullOrEmpty(request.Email) || !request.Email.Contains("@"))
+            try
             {
-                return BadRequest("Invalid email address.");
+                var result = await _twoFactorAuthService.SendCodeAsync(request.Email);
+                return Ok(result);
             }
-
-            var verificationCode = GenerateVerificationCode();
-            var twoFactorAuth = new TwoFactorAuth
+            catch (ArgumentException ex)
             {
-                Email = request.Email,
-                VerificationCode = verificationCode,
-                Is2FAEnabled = false
-            };
-
-            Users[request.Email] = twoFactorAuth;
-
-          
-
-            Console.WriteLine($"Code sent to {request.Email}: {verificationCode}");
-
-            return Ok("Verification code sent.");
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPost("verify-code")]
-        public IActionResult VerifyCode([FromBody] VerificationRequest request)
+        public async Task<IActionResult> VerifyCode([FromBody] VerificationRequest request)
         {
-            if (Users.TryGetValue(request.Email, out var user))
+            var result = await _twoFactorAuthService.VerifyCodeAsync(request.Email, request.Code);
+            if (result == "User not found.")
             {
-                if (user.VerificationCode == request.Code)
-                {
-                    user.Is2FAEnabled = true;
-                    return Ok("Two-Factor Authentication enabled.");
-                }
-                return BadRequest("Invalid verification code.");
+                return NotFound(result);
             }
-            return NotFound("User not found.");
-        }
-
-        private string GenerateVerificationCode()
-        {
-            using (var rng = new RNGCryptoServiceProvider())
+            if (result == "Invalid verification code.")
             {
-                byte[] randomNumber = new byte[4]; // 4 байта = 32 возможных значения
-                rng.GetBytes(randomNumber);
-                uint randomValue = BitConverter.ToUInt32(randomNumber, 0);
-
-                // Генерация 6-значного кода
-                return (randomValue % 900000 + 100000).ToString(); // Убедитесь, что код всегда 6-значный
+                return BadRequest(result);
             }
+            return Ok(result);
         }
-
     }
 
     public class EmailRequest
