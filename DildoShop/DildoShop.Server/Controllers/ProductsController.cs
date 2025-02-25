@@ -1,7 +1,6 @@
-﻿using DildoShop.Server.DataBase;
-using DildoShop.Server.Models;
+﻿using DildoShop.Server.Models;
+using DildoShop.Server.Service;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -11,56 +10,52 @@ namespace DildoShop.Server.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        private readonly AppDbContext _context;
+        private readonly IProductService _productService;
 
-        public ProductsController(AppDbContext context)
+        public ProductsController(IProductService productService)
         {
-            _context = context;
+            _productService = productService;
         }
 
         // GET: api/products
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
         {
-            return await _context.Products.ToListAsync();
+            var products = await _productService.GetProductsAsync();
+            return Ok(products);
         }
 
         // POST: api/products
         [HttpPost]
         public async Task<ActionResult<Product>> PostProduct([FromBody] Product product)
         {
-            if (product == null)
+            try
+            {
+                var createdProduct = await _productService.CreateProductAsync(product);
+                return CreatedAtAction(nameof(GetProduct), new { id = createdProduct.Id }, createdProduct);
+            }
+            catch (ArgumentNullException)
             {
                 return BadRequest("Product is null.");
             }
-
-            // Проверка на наличие обязательных полей
-            if (string.IsNullOrEmpty(product.Name) ||
-                string.IsNullOrEmpty(product.Image) ||
-                string.IsNullOrEmpty(product.Category) ||
-                string.IsNullOrEmpty(product.Description))
+            catch (ArgumentException ex)
             {
-                return BadRequest("All fields are required.");
+                return BadRequest(ex.Message);
             }
-
-            _context.Products.Add(product);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction(nameof(GetProduct), new { id = product.Id }, product);
         }
 
         // GET: api/products/{id}
         [HttpGet("{id}")]
         public async Task<ActionResult<Product>> GetProduct(int id)
         {
-            var product = await _context.Products.FindAsync(id);
+            var product = await _productService.GetProductByIdAsync(id);
 
             if (product == null)
             {
                 return NotFound();
             }
 
-            return product;
+            return Ok(product);
         }
     }
 }
