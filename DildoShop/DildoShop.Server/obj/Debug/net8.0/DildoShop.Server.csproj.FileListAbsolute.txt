@@ -49,3 +49,6 @@ C:\Progi\Saitic\DildoShop\DildoShop.Server\obj\Debug\net8.0\refint\DildoShop.Ser
 C:\Progi\Saitic\DildoShop\DildoShop.Server\obj\Debug\net8.0\DildoShop.Server.pdb
 C:\Progi\Saitic\DildoShop\DildoShop.Server\obj\Debug\net8.0\DildoShop.Server.genruntimeconfig.cache
 C:\Progi\Saitic\DildoShop\DildoShop.Server\obj\Debug\net8.0\ref\DildoShop.Server.dll
+C:\Progi\Saitic\DildoShop\DildoShop.Server\bin\Debug\net8.0\Castle.Core.dll
+C:\Progi\Saitic\DildoShop\DildoShop.Server\bin\Debug\net8.0\Moq.dll
+C:\Progi\Saitic\DildoShop\DildoShop.Server\bin\Debug\net8.0\Moq.EntityFrameworkCore.dll

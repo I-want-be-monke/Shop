@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DildoShop.Server", "DildoShop.Server\DildoShop.Server.csproj", "{2A39785E-FB31-4FF1-9DF1-E3DA79110D13}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DildoShop.Server", "DildoShop.Server\DildoShop.Server.csproj", "{2A39785E-FB31-4FF1-9DF1-E3DA79110D13}"
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "dildoshop.client", "dildoshop.client\dildoshop.client.esproj", "{86B6AB3A-F9EA-4E59-9BFD-9520E60579E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DildoShop.Tests", "DildoShop.Tests\DildoShop.Tests.csproj", "{F89A7729-E2D2-498D-B867-8F05571A97BC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +25,10 @@ Global
 		{86B6AB3A-F9EA-4E59-9BFD-9520E60579E1}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{86B6AB3A-F9EA-4E59-9BFD-9520E60579E1}.Release|Any CPU.Build.0 = Debug|Any CPU
 		{86B6AB3A-F9EA-4E59-9BFD-9520E60579E1}.Release|Any CPU.Deploy.0 = Debug|Any CPU
+		{F89A7729-E2D2-498D-B867-8F05571A97BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F89A7729-E2D2-498D-B867-8F05571A97BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F89A7729-E2D2-498D-B867-8F05571A97BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F89A7729-E2D2-498D-B867-8F05571A97BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

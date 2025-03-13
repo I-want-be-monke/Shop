@@ -44,11 +44,10 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-
+// Регистрация сервисов
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<ITwoFactorAuthService, TwoFactorAuthService>();
 builder.Services.AddScoped<IProductService, ProductService>();
-
 
 builder.Services.AddControllers();
 var app = builder.Build();
@@ -72,7 +71,8 @@ app.MapPost("/error", (HttpContext httpContext) =>
     return Results.Problem(detail: exception?.Message);
 });
 
+// Обработка маршрутов
 app.MapFallbackToFile("index.html");
-
 app.MapControllers();
+
 app.Run();

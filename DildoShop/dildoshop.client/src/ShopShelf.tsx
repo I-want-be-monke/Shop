@@ -16,30 +16,38 @@ const ShopShelf: React.FC = () => {
     const [products, setProducts] = useState<Product[]>([]);
     const [selectedProduct, setSelectedProduct] = useState<number | null>(null);
     const [isAdding, setIsAdding] = useState(false);
-    const [error, setError] = useState<string | null>(null); 
+    const [error, setError] = useState<string | null>(null);
+    const [successMessage, setSuccessMessage] = useState<string | null>(null);
 
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await axios.get<Product[]>('https://localhost:7295/api/products'); 
+                const response = await axios.get<Product[]>('https://localhost:7295/api/products');
                 setProducts(response.data);
             } catch (error) {
                 console.error('Error fetching products:', error);
-                setError('Failed to load products. Please try again later.'); 
+                setError('Failed to load products. Please try again later.');
             }
         };
 
         fetchProducts();
     }, []);
 
-    const handleAddToCart = (productId: number) => {
+    const handleAddToCart = async (productId: number) => {
         setIsAdding(true);
         setSelectedProduct(productId);
 
-        setTimeout(() => {
+        try {
+            await axios.post('https://localhost:7295/api/cart/add', { productId, quantity: 1 });
+            setSuccessMessage('The product has been successfully added to the shopping cart!');
+        } catch (error) {
+            console.error('Error adding to cart:', error);
+            setError('Couldnt add the product to the cart.Please try again later.');
+        } finally {
             setIsAdding(false);
             setSelectedProduct(null);
-        }, 1500);
+            setTimeout(() => setSuccessMessage(null), 3000); // Скрыть сообщение через 3 секунды
+        }
     };
 
     return (
@@ -59,14 +67,11 @@ const ShopShelf: React.FC = () => {
                         View Cart
                     </Link>
                 </div>
-                {error && <div className="error-message">{error}</div>} {/* Отображение сообщения об ошибке */}
+                {error && <div className="error-message">{error}</div>}
+                {successMessage && <div className="success-message">{successMessage}</div>}
                 <div className="products-grid">
                     {products.map((product) => (
-                        <div
-                            key={product.id}
-                            className="product-card"
-                            data-category={product.category}
-                        >
+                        <div key={product.id} className="product-card" data-category={product.category}>
                             <div className="product-image-wrapper">
                                 <img
                                     src={product.image}
@@ -77,7 +82,6 @@ const ShopShelf: React.FC = () => {
                                     }}
                                 />
                                 <div className="product-overlay">
-
                                     <button
                                         className={`add-to-cart ${selectedProduct === product.id && isAdding ? 'adding' : ''}`}
                                         onClick={() => handleAddToCart(product.id)}
@@ -111,3 +115,4 @@ const ShopShelf: React.FC = () => {
 };
 
 export default ShopShelf;
+
