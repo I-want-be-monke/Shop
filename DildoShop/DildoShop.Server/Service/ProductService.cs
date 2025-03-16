@@ -1,4 +1,5 @@
 ﻿using DildoShop.Server.DataBase;
+using DildoShop.Server.Kafka;
 using DildoShop.Server.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -15,10 +16,12 @@ namespace DildoShop.Server.Service
     public class ProductService : IProductService
     {
         private readonly AppDbContext _context;
+        private readonly IKafkaProducerService _kafkaProducerService;
 
-        public ProductService(AppDbContext context)
+        public ProductService(AppDbContext context, IKafkaProducerService kafkaProducerService)
         {
             _context = context;
+            _kafkaProducerService = kafkaProducerService;
         }
 
         public async Task<List<Product>> GetProductsAsync()
@@ -38,17 +41,20 @@ namespace DildoShop.Server.Service
                 throw new ArgumentNullException(nameof(product));
             }
 
-           
             if (string.IsNullOrEmpty(product.Name) ||
                 string.IsNullOrEmpty(product.Image) ||
                 string.IsNullOrEmpty(product.Category) ||
                 string.IsNullOrEmpty(product.Description))
             {
-                throw new ArgumentException("All fields are required.");
+                throw new ArgumentException("Все поля обязательны для заполнения.");
             }
 
             _context.Products.Add(product);
             await _context.SaveChangesAsync();
+
+            // Отправка сообщения в Kafka
+            var message = $"Создан продукт: {product.Name} (ID: {product.Id})";
+            await _kafkaProducerService.SendMessageAsync("product_created", message);
 
             return product;
         }

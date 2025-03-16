@@ -1,16 +1,19 @@
 using DildoShop.Server.DataBase;
-using DildoShop.Server.Service; // Убедитесь, что вы добавили это пространство имен
+using DildoShop.Server.Service;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using Confluent.Kafka;
+using DildoShop.Server.Services;
+using DildoShop.Server.Kafka;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Добавляем DbContext
+// Add DbContext
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Добавляем CORS
+// Add CORS
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", policy =>
@@ -21,7 +24,7 @@ builder.Services.AddCors(options =>
     });
 });
 
-// Добавляем Swagger
+// Add Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
@@ -44,17 +47,28 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-// Регистрация сервисов
+// Register services
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<ITwoFactorAuthService, TwoFactorAuthService>();
 builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<CartService>(); // Register CartService
+
+// Configure Kafka
+var kafkaConfig = new ProducerConfig
+{
+    BootstrapServers = builder.Configuration["Kafka:BootstrapServers"]
+};
+
+builder.Services.AddSingleton<IProducer<Null, string>>(new ProducerBuilder<Null, string>(kafkaConfig).Build());
+builder.Services.AddSingleton<IKafkaProducerService, KafkaProducerService>();
+
 
 builder.Services.AddControllers();
 var app = builder.Build();
 
 app.UseCors("AllowAll");
 
-// Включаем Swagger
+// Enable Swagger
 app.UseSwagger();
 app.UseSwaggerUI(c =>
 {
@@ -62,7 +76,7 @@ app.UseSwaggerUI(c =>
     c.RoutePrefix = "swagger";
 });
 
-// Обработка ошибок
+// Error handling
 app.UseExceptionHandler("/error");
 
 app.MapPost("/error", (HttpContext httpContext) =>
@@ -71,7 +85,7 @@ app.MapPost("/error", (HttpContext httpContext) =>
     return Results.Problem(detail: exception?.Message);
 });
 
-// Обработка маршрутов
+// Route handling
 app.MapFallbackToFile("index.html");
 app.MapControllers();
 
